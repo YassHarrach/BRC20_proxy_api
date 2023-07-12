@@ -17,6 +17,7 @@ app.set('trust proxy', 1)
 
 // Routes
 app.use('/brc20', require('./routes/brc20.js'))
+app.use('/wallet', require('./routes/wallet.js'))
 
 // Enable cors
 app.use(cors())
