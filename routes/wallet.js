@@ -25,6 +25,11 @@ router.get('/inscriptions', cache('15 seconds'), async (req, res) => {
             `${URL}/inscriptions?${params}`,
             { headers: { [API_KEY_NAME]: API_KEY_VALUE } }
         )
+
+        res.header('Access-Control-Allow-Origin', 'https://www.litoshi.app');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        
         const data = apiRes.body
 
         res.status(200).json(data)
@@ -45,6 +50,11 @@ router.get('/activity', cache('15 seconds'), async (req, res) => {
             `${URL}/activity?${params}`,
             { headers: { [API_KEY_NAME]: API_KEY_VALUE } }
         )
+
+        res.header('Access-Control-Allow-Origin', 'https://www.litoshi.app');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        
         const data = apiRes.body
 
         res.status(200).json(data)

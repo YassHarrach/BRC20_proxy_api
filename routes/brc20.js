@@ -25,7 +25,7 @@ router.get('/wallet_balances', cache('15 seconds'), async (req, res) => {
             `${URL}/wallet_balances?${params}`,
             { headers: { [API_KEY_NAME]: API_KEY_VALUE } }
         )
-        
+
         res.header('Access-Control-Allow-Origin', 'https://www.litoshi.app');
         res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -50,6 +50,11 @@ router.get('/tickers', cache('15 seconds'), async (req, res) => {
             `${URL}/tickers?${params}`,
             { headers: { [API_KEY_NAME]: API_KEY_VALUE } }
         )
+
+        res.header('Access-Control-Allow-Origin', 'https://www.litoshi.app');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+
         const data = apiRes.body
 
         res.status(200).json(data)
@@ -70,6 +75,11 @@ router.get('/ticker_info', cache('15 seconds'), async (req, res) => {
             `${URL}/ticker_info?${params}`,
             { headers: { [API_KEY_NAME]: API_KEY_VALUE } }
         )
+
+        res.header('Access-Control-Allow-Origin', 'https://www.litoshi.app');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+
         const data = apiRes.body
 
         res.status(200).json(data)
@@ -90,6 +100,11 @@ router.get('/sales_info', cache('15 seconds'), async (req, res) => {
             `${URL}/sales_info?${params}`,
             { headers: { [API_KEY_NAME]: API_KEY_VALUE } }
         )
+
+        res.header('Access-Control-Allow-Origin', 'https://www.litoshi.app');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+
         const data = apiRes.body
 
         res.status(200).json(data)
@@ -109,6 +124,11 @@ router.get('/market_info', cache('15 seconds'), async (req, res) => {
             `${URL}/market_info?${params}`,
             { headers: { [API_KEY_NAME]: API_KEY_VALUE } }
         )
+
+        res.header('Access-Control-Allow-Origin', 'https://www.litoshi.app');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        
         const data = apiRes.body
 
         res.status(200).json(data)
