@@ -8,11 +8,11 @@ const PORT = 5000
 const app = express()
 
 // Rate limiting
-const limiter = rateLimit({
+/*const limiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 Mins
     max: 1000
 })
-app.use(limiter)
+app.use(limiter)*/
 app.set('trust proxy', 1)
 
 // Routes
