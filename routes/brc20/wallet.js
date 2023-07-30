@@ -5,9 +5,9 @@ const needle = require('needle')
 const apicache = require('apicache')
 
 // Env vars
-const URL = process.env.API_BASE_URL+'/wallet'
-const API_KEY_NAME = process.env.API_KEY_NAME
-const API_KEY_VALUE = process.env.API_KEY_VALUE
+const URL = process.env.API_BRC20_BASE_URL+'/wallet'
+const API_KEY_NAME = process.env.API_BRC20_KEY_NAME
+const API_KEY_VALUE = process.env.API_BRC20_KEY_VALUE
 
 
 // Init cache
