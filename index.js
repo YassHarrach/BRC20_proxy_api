@@ -49,8 +49,10 @@ function authenticateApiKey(req, res, next) {
 // Middleware d'authentification pour protéger les routes sensibles
 //app.use(authenticateApiKey);
 
+// Autorisez uniquement l'origine spécifique du front-end
+const frontEndOrigin = 'https://www.litoshi.app';
 // Enable cors
-app.use(cors({ origin: checkOrigin }))
+app.use(cors({ origin: frontEndOrigin }))
 
 // Routes
 app.use('/brc20', require('./routes/brc20/brc20.js'))
