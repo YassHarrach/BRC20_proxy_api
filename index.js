@@ -73,7 +73,9 @@ const cookieSessionMiddleware = cookieSession(sessionOptions);
 app.use(cookieSessionMiddleware);
 
 app.get('/', (req, res) => {
+  console.log("Initializing a cookie session");
   res.cookie('session', uuid.v4());
+  res.status(200)
 });
 
 
