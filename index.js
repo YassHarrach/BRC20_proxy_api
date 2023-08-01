@@ -19,7 +19,7 @@ app.set('trust proxy', 1)
 
 // Logging received and sent requests
 app.use((req, res, next) => {
-  console.log('Request received:', req.url);
+  console.log('Request received:', req);
   next();
 });
 
