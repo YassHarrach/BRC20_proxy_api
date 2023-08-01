@@ -16,6 +16,7 @@ let cache = apicache.middleware
 router.get('/wallet_balances', cache('15 seconds'), async (req, res) => {
     try {
         const sessionId = req.cookies.session;
+        console.log(sessionId);
 
         if (!sessionId) {
             res.status(401).send('Unauthorized');
@@ -40,7 +41,8 @@ router.get('/wallet_balances', cache('15 seconds'), async (req, res) => {
 
         res.status(200).json(data)
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json(error);
+        console.log(error);
     }
 })
 
