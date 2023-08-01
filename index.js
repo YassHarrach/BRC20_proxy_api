@@ -82,7 +82,7 @@ app.get('/', (req, res) => {
     console.log("Initializing a cookie session");
     res.cookie('session', uuid.v4());
     console.log("Cookie session initialized");
-    res.status(200);
+    res.status(200).json({});
   } catch (error) {
     res.status(500).json(error)
   }
