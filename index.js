@@ -89,5 +89,10 @@ app.use('/brc20', require('./routes/brc20/brc20.js'))
 app.use('/wallet', require('./routes/brc20/wallet.js'))
 app.use('/ltc20', require('./routes/ltc20/ltc20.js'))
 
+// Logging received and sent requests
+app.use((req, res, next) => {
+  debug('Request received:', req.url);
+  next();
+});
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
