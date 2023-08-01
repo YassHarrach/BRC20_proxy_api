@@ -91,7 +91,7 @@ app.use('/ltc20', require('./routes/ltc20/ltc20.js'))
 
 // Logging received and sent requests
 app.use((req, res, next) => {
-  debug('Request received:', req.url);
+  console.log('Request received:', req.url);
   next();
 });
 
