@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors')
+const cookieSession = require('cookie-session');
+const uuid = require('uuid');
 const rateLimit = require('express-rate-limit')
 require('dotenv').config()
 
@@ -53,6 +55,27 @@ function authenticateApiKey(req, res, next) {
 const frontEndOrigin = 'https://www.litoshi.app';
 // Enable cors
 app.use(cors({ origin: frontEndOrigin }))
+
+// Middleware pour créer une cookie session
+const sessionOptions = {
+  name: 'session',
+  keys: ['key1', 'key2'],
+  maxAge: 3600000, // 1 hour
+  expires: new Date(Date.now() + 3600000),
+  //path: '/api',
+  //domain: 'example.com',
+  secure: true,
+  httpOnly: true,
+  sameSite: 'Strict',
+};
+
+const cookieSessionMiddleware = cookieSession(sessionOptions);
+app.use(cookieSessionMiddleware);
+
+app.get('/', (req, res) => {
+  res.cookie('session', uuid.v4());
+});
+
 
 // Routes
 app.use('/brc20', require('./routes/brc20/brc20.js'))

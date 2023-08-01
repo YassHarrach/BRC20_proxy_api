@@ -15,6 +15,12 @@ let cache = apicache.middleware
 
 router.get('/wallet_balances', cache('15 seconds'), async (req, res) => {
     try {
+        const sessionId = req.cookies.session;
+
+        if (!sessionId) {
+            res.status(401).send('Unauthorized');
+        }
+
         const params = new URLSearchParams({
             [API_KEY_NAME]: API_KEY_VALUE,
             ...url.parse(req.url, true).query,
