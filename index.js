@@ -73,10 +73,14 @@ const cookieSessionMiddleware = cookieSession(sessionOptions);
 app.use(cookieSessionMiddleware);
 
 app.get('/', (req, res) => {
-  console.log("Initializing a cookie session");
-  res.cookie('session', uuid.v4());
-  console.log("Cookie session initialized");
-  res.status(200);
+  try {
+    console.log("Initializing a cookie session");
+    res.cookie('session', uuid.v4());
+    console.log("Cookie session initialized");
+    res.status(200);
+  } catch (error) {
+    res.status(500).json(error)
+  }
 });
 
 
