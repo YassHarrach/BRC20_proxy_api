@@ -84,7 +84,8 @@ app.get('/', (req, res) => {
     console.log("Cookie session initialized");
     res.status(200).json({});
   } catch (error) {
-    res.status(500).json(error)
+    res.status(500).json(error);
+    console.log(error);
   }
 });
 
